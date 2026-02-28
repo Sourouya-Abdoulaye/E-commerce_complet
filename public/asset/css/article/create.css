@@ -1,0 +1,142 @@
+/* Fond général comme login */
+body {
+  /* background: linear-gradient(rgb(53,42,97), rgb(31,26,54), rgb(41,32,77)); */
+  background-color: #f2f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+/* Wrapper */
+.form-wrapper {
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Card style glass */
+.form-card {
+  background: #ffffff;
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+/* Header */
+.form-header {
+  
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-header h2 {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.form-header p {
+  color: #3b3939;
+  font-size: 0.9rem;
+}
+
+/* Input group */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background: #f1f5f9;
+  color: rgb(83, 80, 80);
+  color: #000000;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #4364F7;
+  box-shadow: 0 0 0 3px rgba(67,100,247,0.2);
+}
+
+
+.radio-group {
+  display: flex;
+  gap: 25px;
+  margin: 10px 0 25px 5px;
+  color: #475569;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.radio-group input {
+  accent-color: #6366f1;
+  cursor: pointer;
+}
+
+
+
+
+
+
+/* File input */
+.file-input-container {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1.5px dashed #444;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  background: #f1f5f9;
+  transition: 0.3s;
+}
+
+.file-input-container:hover {
+  border-color: #4364F7;
+}
+
+/* Erreur */
+.erro_message {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+}
+
+/* Bouton */
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(to right, #0052D4, #4364F7);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(67,100,247,0.4);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .form-card {
+    padding: 25px 20px;
+  }
+}

@@ -1,0 +1,141 @@
+/* Base */
+body {
+    background-color: rgb(15, 12, 27);
+    background: linear-gradient( rgb(53, 42, 97), rgb(31, 26, 54), rgb(41, 32, 77));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-wrapper {
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.login-card {
+ 
+    background: rgba(24, 20, 39, 0.308);
+    width: 100%;
+    max-width: 500px;   /* Largeur max pour Desktop */
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* En-tête */
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.form-header i { font-size: 3rem; color: #4364F7; margin-bottom: 10px; }
+.form-header h2 { color: #fffcfc; font-size: 1.8rem; margin: 0; }
+.form-header p { color: #777; font-size: 0.9rem; }
+
+/* Groupes d'entrée avec icônes */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+.input-group i:not(.toggle-password i) {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    transition: 0.3s;
+}
+.input-group input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: 0.3s;
+}
+.input-group input:focus { border-color: #4364F7; }
+.input-group input:focus + i { color: #4364F7; }
+
+/* Toggle Password */
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #777;
+}
+
+/* Options & Footer */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 25px;
+}
+.forgot-link { text-decoration: none; color: #4364F7; font-weight: 500; }
+
+/* Bouton avec Animation */
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, #0052D4, #4364F7);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s transform;
+}
+.btn-submit:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(67, 100, 247, 0.4); }
+.btn-submit:active { transform: translateY(0); }
+
+.pas_compte {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+}
+.pas_compte a {
+ 
+    color: #4364F7;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* --- RESPONSIVE --- */
+
+/* Tablettes (max 768px) */
+@media (max-width: 768px) {
+    .login-card {
+        max-width: 400px;
+        padding: 30px;
+    }
+}
+
+/* Mobiles (max 480px) */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 25px 20px;
+        border-radius: 15px;
+    }
+    .form-header h2 { font-size: 1.5rem; }
+    .form-options {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+}

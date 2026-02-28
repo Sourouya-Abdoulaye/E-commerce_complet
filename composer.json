@@ -1,0 +1,20 @@
+{
+    "name": "abdoulaye/projet_noel_php",
+    "description": "Mon projet e-commerce qui va permenttre a un boutiquer de pouvior faire des vente en ligne",
+    
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Config\\": "config/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sourouya-Abdoulaye",
+            "email": "akisourouyaabdoulaye@gmail.com"
+        }
+    ],
+    "require": {
+        "altorouter/altorouter": "^2.0"
+    }
+}

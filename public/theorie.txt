@@ -1,0 +1,38 @@
+1. Quelle est la conséquence de cette commande ?
+  Composer telecharge et installe les dependances PHP du projet.
+  il installe le package vendor/ qui contient le package composer
+  et un fichier autoload.php, et en suite cree un fichier composer.json
+
+ 
+2. À quoi sert le fichier composer.json et composer.lock ?
+    a°) composer.json: 
+    C’est le fichier de configuration principal de notre package Composer.
+    Il contient : les dependances du projet,leurs versions ,les information du projet (nom, auteur, etc.)
+    et le fichier de configuration de l’autoload
+
+    b°) composer.lock: 
+     verifie la version de librairie utiliser; 
+     tres important lorsquer , plusieur personne travail sur le meme projet
+
+
+3. À quoi sert le répertoire vendor ?
+il sert a stoquer les dependances de notre projet
+et le fichier qui genere l'autoloader
+
+
+4. À quoi sert le fichier vendor/autoload.php ?
+il permet de charger toute les classe de notre projet et leur dependance
+
+5. Qu’est-ce qu’un autoloader ?
+c'est un mecanisme qui permet de charger les ficiher php automatiquement
+lorsqu'une classe est utiliser sans avoir fait le required.
+
+
+6.1 Pourquoi avons-nous créé le fichier index.php dans public/ ?
+c'est pour enpecher tout acces non autoriser via aux navigateur car 
+l'index est le poit d'entrer de notre projet.
+
+6.2 Que se passerait-il si index.php était à la racine du projet ?
+tout notre projet serait accessible via aux navigateur ( cet a dire un utilisateur 
+peut taper : /vendor pour acceder a se dossier (pareil pour toute les dossier et fichier ) )
+
