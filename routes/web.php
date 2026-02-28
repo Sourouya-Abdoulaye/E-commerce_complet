@@ -70,7 +70,7 @@ $router->map('POST', '/panier', [$PanierController, 'vider']);
 
 
 // Routes POST
-$router->map('GET', '/cmd', [$CmdController, 'index']);
+$router->map('GET', '/admin/cmd', [$CmdController, 'index']);
 $router->map('POST', '/commande', [$CmdController, 'store']);
 
 
@@ -89,7 +89,8 @@ $router->map('GET', '/propo', [$AuthController, 'propo']);
 
 //Administration
 $router->map('GET', '/admin/users/form', [$AdminController, 'createForm']);
-$router->map('GET', '/admin/users', [$AdminController, 'users']);
+// $router->map('GET', '/admin/users', [$AdminController, 'users']);
+$router->map('GET', '/admin/users/[a:role]', [$AdminController, 'users']);
 
 $router->map('GET', '/admin/dashboard', [$AdminController, 'dashboard']);
 $router->map('GET', '/admin/soldes', [$AdminController, 'soldes']);

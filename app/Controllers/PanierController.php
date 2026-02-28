@@ -4,13 +4,7 @@ use App\Models\Article;
 
 class PanierController extends Controller  { 
 
-    // public function index() {
-    //         // echo "Liste des Articles";
-    //         $products=Article::all();
-    //         $mes_data=compact("products");
-    //         $this->render("article/index.php",$mes_data);
-        
-    // }
+   
 
     public function index() {
         $nbr_produit=0;
@@ -18,10 +12,7 @@ class PanierController extends Controller  {
         //on verifie si le panier existe e
         if (isset($_SESSION['panier']) && count($_SESSION['panier'])!==0) {
 
-            // echo "<pre style='color:white' >";
-            //     print_r($_SESSION['panier']);
-            //     echo '-----panier haut-----------------------------------------';
-            // echo "<pre>";
+        
             
             $mon_panier=$_SESSION['panier'];
             $nbr_produit=count($mon_panier);
@@ -42,34 +33,13 @@ class PanierController extends Controller  {
         // $produit_trouver=null;
         $produit_panier=Article::find($id);
 
-        // foreach ($products as $key => $product) {
-            // if ($product['id']==$id) {
-            //     $produit_trouver=$product;
-            //     break;
-            // }
-        //  }
 
         //"Si produit existe et n’est pas null, alors retourne produit, sinon retourne null."
         $produit=($produit_panier) ?? null ;
         $produit['qte']=1;
         $_SESSION['panier'][$produit['id']]=$produit;
 
-        // }
-
-
-        // if (!isset($produit_panier) ) {
-        //   echo"  <div id='toast' class='toast error'>  ❌ Produit introuvable  </div> ";
-               
-           
-        // }
-        
-        // elseif (isset($produit_panier) ) {
-        //     echo "  <div id='toast' class='toast success'>  ✅ Produit ajouté avec succès </div>" ;
-               
-            
-        // }
-
-        
+       
 
         if ($categorie=='produits') {
             header("Location:/$id?#$categorie");

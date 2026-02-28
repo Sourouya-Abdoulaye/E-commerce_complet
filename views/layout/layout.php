@@ -22,7 +22,7 @@
 <body >
     <?php require_once __DIR__."/../layout/seidbare.php" ?>
 
-     <div class="main">
+    <div class="main">
             <div class="topbar">
         <div class="topbar-left">
             <button class="burger-btn" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
@@ -46,13 +46,7 @@
         </div>
         </div>
 
-        <!-- <div class="navbar">
-            <div class="toggle-btn" onclick="toggleSidebar()">
-            <i class="fa fa-bars"></i>
-            </div>
-
-            
-        </div> -->
+    
 
         <?php require_once __DIR__."/../$contenu";   ?>
 

@@ -37,10 +37,10 @@
     </div>
   </a>
 
-  <a href="/admin/dashboard#orders">
-    <div class="nav-item <?= str_contains($currentPage, '/admin/dashboard#orders') ? 'active' : '' ?>">
+  <a href="/admin/cmd">
+    <div class="nav-item <?= str_contains($currentPage, '/admin/cmd') ? 'active' : '' ?>">
       <i class="fa-solid fa-bag-shopping"></i> Commandes 
-      <span class="nav-badge">12</span>
+      <span class="nav-badge"><?=$nbre_cmd?></span>
     </div>
   </a>
 
@@ -50,15 +50,15 @@
     </div>
   </a>
 
-  <a href="/admin/users">
-    <div class="nav-item <?= str_contains($currentPage, '/admin/users') ? 'active' : '' ?>">
-      <i class="fa-solid fa-users"></i> Users
+  <a href="/admin/users/admin">
+    <div class="nav-item <?= str_contains($currentPage, '/admin/users/admin') ? 'active' : '' ?>">
+      <i class="fa-solid fa-users"></i> Admins
     </div>
   </a>
 
-  <a href="#/admin/clients">
-    <div class="nav-item <?= str_contains($currentPage, '/admin/clients') ? 'active' : '' ?>">
-      <i class="fa-solid fa-users"></i> Client
+  <a href="/admin/users/client">
+    <div class="nav-item <?= str_contains($currentPage, '/admin/users/client') ? 'active' : '' ?>">
+      <i class="fa-solid fa-users"></i> Clients
     </div>
   </a>
 

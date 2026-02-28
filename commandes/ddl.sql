@@ -3,9 +3,9 @@ DROP TABLE IF EXISTS commande;
 
 CREATE TABLE commande (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    -- num_commande TEXT NOT NULL UNIQUE,
     date_commande DATE NOT NULL,
     client TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
     nombre_produits INTEGER NOT NULL CHECK (nombre_produits >= 0),
     total NUMERIC NOT NULL CHECK (total >= 0),
     status TEXT NOT NULL CHECK (

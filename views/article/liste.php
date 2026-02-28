@@ -1,5 +1,5 @@
 <div class="content">
-<div  class="table-card" id="orders" >
+    <div  class="table-card" id="orders" >
 
     <div class="table-header-group" class="card-head" style="padding:1.5rem 1.5rem 0;">
         <h3>Articles Disponibles</3>
@@ -78,7 +78,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-</div>
-</div>
+    </div>
+    </div>
 </div>
 

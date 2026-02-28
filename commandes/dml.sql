@@ -1,11 +1,10 @@
-INSERT INTO commande (date_commande, client, nombre_produits, total, status)
+INSERT INTO commande (date_commande, client, email, nombre_produits, total, status)
 VALUES
-('2026-03-01', 'Ali', 3, 250.00, 'Payer'),
-('2026-03-02', 'Sara', 1, 120.00, 'Livrer'),
-('2026-03-03', 'Omar', 2, 300.00, 'Expedier'),
-('2026-03-04', 'Lina', 4, 180.00, 'En attente'),
-('2026-03-05', 'Youssef', 1, 90.00, 'Annuler');
-
+('2026-03-01', 'Ali', 'ali@email.com', 3, 250.00, 'Payer'),
+('2026-03-02', 'Sara', 'sara@email.com', 1, 120.00, 'Livrer'),
+('2026-03-03', 'Omar', 'omar@email.com', 2, 300.00, 'Expedier'),
+('2026-03-04', 'Lina', 'lina@email.com', 4, 180.00, 'En attente'),
+('2026-03-05', 'Youssef', 'youssef@email.com', 1, 90.00, 'Annuler');
 
 INSERT INTO ligne_commande (commande_id, produit_id, quantite, prix_unitaire)
 VALUES

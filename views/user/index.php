@@ -28,7 +28,8 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($users as $user): ?>
+        <?php foreach ($users as $user): ?>
+            <?php if($role==$user["role"]) : ?>
             <tr>
                 <td>
                     <div class="td-client">
@@ -57,7 +58,6 @@
                 <td class="td-date">
                     <?= $user["birth_day"] ?>
                 </td>
-
                 <td>
                     <div class="td-actions">
                         <a href="/users/<?= $user["id"] ?>" class="action-btn">
@@ -76,7 +76,12 @@
                     </div>
                 </td>
             </tr>
-            <?php endforeach ?>
+            <?php endif ?>
+        <?php endforeach ?>
+        
+    
+
+
         </tbody>
     </table>
 </div>

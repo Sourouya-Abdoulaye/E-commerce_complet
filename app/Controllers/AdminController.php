@@ -5,12 +5,12 @@ use App\Models\Article;
 
 class AdminController extends Controller {
 
-    public function users() {
-        if (isset($_SESSION['connexion'])  && $_SESSION['connexion']['role']=='admin') {
+    public function users($role='admin') {
+        if (isset($_SESSION['connexion'])  && $_SESSION['connexion']['role']=='admin' && in_array($role,['admin','client'])) {
+            // die($role);
             $users=User::all();
             $contenu="user/index.php";
-            $mes_data=compact("users","contenu");
-            //$this->render("user/index.php",$mes_data);
+            $mes_data=compact("users","contenu",'role');
             $this->render("layout/layout.php",$mes_data);
         } else {
             echo "vous n'este pas connecter";

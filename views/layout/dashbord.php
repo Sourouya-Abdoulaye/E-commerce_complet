@@ -1,13 +1,4 @@
-<a href="/?article=<?= $product["id"]?>&#produits"> 
-                                            <button type="button" class="add">
-                                                <!-- c'est pour verifier si le produit existe deja dans panier -->
-                                                <?php  $resultat= (isset($_SESSION['panier']) &&  $_SESSION['panier'][$product["id"]]) ? "déja au panier" : "ajouter au panier" ; ?>
-                                                
-                                                <!-- ajouter panier -->
-                                                <?=$resultat?>
-                                            </button> 
-                                            
-                                    </a>
+
 <!-- Content -->
     <div class="content">
 
@@ -89,15 +80,15 @@
           </div>
           <div class="mini-chart">
             <div class="bar-group">
-              <div class="bar" style="height:55%;background:rgba(200,184,255,0.3);" data-val="180K"></div>
+              <div class="bar" style="height:55%;background:rgba(80, 49, 184, 0.76);" data-val="180K"></div>
               <div class="bar-label">Lun</div>
             </div>
             <div class="bar-group">
-              <div class="bar" style="height:72%;background:rgba(200,184,255,0.5);" data-val="235K"></div>
+              <div class="bar" style="height:72%;background:rgba(80, 49, 184, 0.76);" data-val="235K"></div>
               <div class="bar-label">Mar</div>
             </div>
             <div class="bar-group">
-              <div class="bar" style="height:45%;background:rgba(200,184,255,0.3);" data-val="148K"></div>
+              <div class="bar" style="height:45%;background:rgba(80, 49, 184, 0.76);" data-val="148K"></div>
               <div class="bar-label">Mer</div>
             </div>
             <div class="bar-group">
@@ -167,8 +158,8 @@
               <div class="qa-btn purple"><i class="fa-solid fa-plus"></i><span>Ajouter un menbres</span></div>
             </a>
 
-            <a href="#/admin/client">
-              <div class="qa-btn purple"><i class="fa-solid fa-eye"></i><span>Voir les client</span></div>
+            <a href="/admin/users/client">
+              <div class="qa-btn purple"><i class="fa-solid fa-eye"></i><span>Voir les clients</span></div>
             </a>
             
             <div class="qa-btn blue"><i class="fa-solid fa-tag"></i><span>Nouvelle promo</span></div>

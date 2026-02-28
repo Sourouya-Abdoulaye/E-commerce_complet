@@ -69,27 +69,27 @@ class AuthController extends Controller {
         $this->render("auth/propo.php");
     }
 
-    public function panier() {
-        // echo 'Login form';
-        $nbr_produit=0;
-        $mon_panier=[];
-        //comme ces operation necessite un panier donc on verifie si il existe
-        if (isset($_SESSION['panier']) && count($_SESSION['panier'])!==0) {
+    // public function panier() {
+    //     // echo 'Login form';
+    //     $nbr_produit=0;
+    //     $mon_panier=[];
+    //     //comme ces operation necessite un panier donc on verifie si il existe
+    //     if (isset($_SESSION['panier']) && count($_SESSION['panier'])!==0) {
 
-            if (isset($_GET['article']) && isset($_GET['action'])  ) {
-            //ajout | dimunition de quantiter
-            die("article numero {$_GET['article']} c'est ".$_GET['action']);
+    //         if (isset($_GET['article']) && isset($_GET['action'])  ) {
+    //         //ajout | dimunition de quantiter
+    //         die("article numero {$_GET['article']} c'est ".$_GET['action']);
             
-            }
+    //         }
 
-            // echo "<pre style='color:white' >";
-            //     print_r($_SESSION['panier']);
-            //     echo '-----panier haut-----------------------------------------';
-            // echo "<pre>";
+    //         // echo "<pre style='color:white' >";
+    //         //     print_r($_SESSION['panier']);
+    //         //     echo '-----panier haut-----------------------------------------';
+    //         // echo "<pre>";
             
-            $mon_panier=$_SESSION['panier'];
-            $nbr_produit=count($mon_panier);
-        }
+    //         $mon_panier=$_SESSION['panier'];
+    //         $nbr_produit=count($mon_panier);
+    //     }
 
         
         
@@ -98,9 +98,9 @@ class AuthController extends Controller {
 
 
 
-        $data=compact("nbr_produit","mon_panier");
-        $this->render("auth/panier.php",$data);
-    }
+    //     $data=compact("nbr_produit","mon_panier");
+    //     $this->render("auth/panier.php",$data);
+    // }
 
 
 
