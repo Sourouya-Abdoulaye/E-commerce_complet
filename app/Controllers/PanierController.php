@@ -11,9 +11,6 @@ class PanierController extends Controller  {
         $mon_panier=[];
         //on verifie si le panier existe e
         if (isset($_SESSION['panier']) && count($_SESSION['panier'])!==0) {
-
-        
-            
             $mon_panier=$_SESSION['panier'];
             $nbr_produit=count($mon_panier);
         }
@@ -24,22 +21,14 @@ class PanierController extends Controller  {
 
     }
 
-    
-
     public function ajouter($id,$categorie="produits")   {
         echo "ajout $id $categorie";
-       
-        // if (isset($_GET['article']) ) {
-        // $produit_trouver=null;
         $produit_panier=Article::find($id);
-
 
         //"Si produit existe et n’est pas null, alors retourne produit, sinon retourne null."
         $produit=($produit_panier) ?? null ;
         $produit['qte']=1;
         $_SESSION['panier'][$produit['id']]=$produit;
-
-       
 
         if ($categorie=='produits') {
             header("Location:/$id?#$categorie");
@@ -47,19 +36,10 @@ class PanierController extends Controller  {
             header("Location:/$id?categorie=$categorie#categorie");
         }
         
-
-       
-        
-        // Ajouter un produit depuis le formulaire article/$id&categorie=$categorie#categorie
-
-        ///"
-
-        
     }
 
 
     public function update($id,$action) {
-       
         //comme ces operation necessite un panier donc on verifie si il existe
         // et que le produit existe aussi et que action est entre + | -
         
@@ -79,10 +59,8 @@ class PanierController extends Controller  {
                 print_r($produit);
                // die("dim de article ".$id);
             }
-            // else {
-            //     die("action de $id est introuvable ");
-            // }
-                header("Location:/panier");
+        
+            header("Location:/panier");
 
         }
          else {
@@ -90,11 +68,6 @@ class PanierController extends Controller  {
             
         }
 
-
-
-
-
-        // Modifier la quantité d’un produit
     }
 
     public function delete($id) {
@@ -120,23 +93,25 @@ class PanierController extends Controller  {
 
     }
 
-    public function validerCommande()   {
-        // Passer le panier en commande
-    }
-
-
 
     public function paiement() {
-        if ( isset($_SESSION['panier'])  && count($_SESSION['panier'])>0) {
+
+        if (isset($_SESSION['connexion'])) {
+             if ( isset($_SESSION['panier'])  && count($_SESSION['panier'])>0) {
             $paniers=$_SESSION['panier'];
             $this->render("auth/paiement.php",compact('paniers'));
 
-        } else {
-            header("Location:/panier");
+            } else {
+                header("Location:/panier");
 
+            }
+
+        } else {
+            header("Location:/login/form");
+           
         }
 
-
+       
 }
 
 

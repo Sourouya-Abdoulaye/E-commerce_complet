@@ -13,8 +13,8 @@
     <style>
         <?php  include_once __DIR__."/../../public/asset/css/commun/dashboard.css"  ?>
         <?php  include_once __DIR__."/../../public/asset/css/commun/style.css"  ?>
-        <?php include_once __DIR__."/../../public/asset/css/user/index.css"  ?>
-        <?php include_once __DIR__."/../../public/asset/css/commun/layout.css"  ?>
+        <?php  include_once __DIR__."/../../public/asset/css/user/index.css"  ?>
+        <?php  include_once __DIR__."/../../public/asset/css/commun/layout.css"  ?>
     </style>
 
     <title>layout</title>
@@ -23,27 +23,27 @@
     <?php require_once __DIR__."/../layout/seidbare.php" ?>
 
     <div class="main">
-            <div class="topbar">
-        <div class="topbar-left">
-            <button class="burger-btn" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
-            <div class="topbar-title">
-            <h2>Tableau de bord</h2>
-            <p>Bienvenue, Admin 👋</p>
+        <div class="topbar">
+            <div class="topbar-left">
+                <button class="burger-btn" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+                <div class="topbar-title">
+                <h2>Tableau de bord</h2>
+                <p>Bienvenue, Admin 👋</p>
+                </div>
             </div>
-        </div>
-        <div class="topbar-right">
-            <div class="date-chip"><i class="fa-regular fa-calendar"></i> 22 Fév 2026</div>
-            <div class="topbar-btn" title="Rechercher"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <div class="topbar-btn" title="Notifications">
-            <i class="fa-solid fa-bell"></i>
-            <span class="notif-dot"></span>
-            </div>
-            <a href="/" class="topbar-btn" title="Voir la boutique"><i class="fa-solid fa-store"></i></a>
+            <div class="topbar-right">
+                <div class="date-chip"><i class="fa-regular fa-calendar"></i> 22 Fév 2026</div>
+                <div class="topbar-btn" title="Rechercher"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <div class="topbar-btn" title="Notifications">
+                <i class="fa-solid fa-bell"></i>
+                <span class="notif-dot"></span>
+                </div>
+                <a href="/" class="topbar-btn" title="Voir la boutique"><i class="fa-solid fa-store"></i></a>
 
-            <div class="nav-actions">
-            <i class="fa fa-moon" onclick="toggleDark()"></i>
+                <div class="nav-actions">
+                <i class="fa fa-moon" onclick="toggleDark()"></i>
+                </div>
             </div>
-        </div>
         </div>
 
     

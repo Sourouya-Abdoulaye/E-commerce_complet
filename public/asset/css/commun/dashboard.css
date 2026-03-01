@@ -451,21 +451,21 @@
       border-radius: 50%;
     }
 
-    .badge-status.livree {
-      background: rgba(74, 222, 128, 0.12);
-      color: var(--green);
+    .badge-status.Livrer {
+      background: rgba(74, 222, 128, 0.568);
+      color:  rgba(2, 253, 94, 0.568);
     }
 
-    .badge-status.livree::before {
-      background: var(--green);
+    .badge-status.Livrer::before {
+      background: rgba(163, 179, 169, 0.568);
     }
 
-    .badge-status.encours {
+    .badge-status.Expedier {
       background: rgba(142, 184, 216, 0.12);
       color: #8eb8d8;
     }
 
-    .badge-status.encours::before {
+    .badge-status.Expedier::before {
       background: #8eb8d8;
     }
 
@@ -478,13 +478,23 @@
       background: var(--accent3);
     }
 
-    .badge-status.annulee {
+    .badge-status.Annuler {
       background: rgba(248, 113, 113, 0.12);
       color: var(--red);
     }
 
-    .badge-status.annulee::before {
+    .badge-status.Annuler::before {
       background: var(--red);
+    }
+
+
+    .badge-status.Payer {
+      background:rgba(74, 222, 128, 0.12);
+      color: var(--green);
+    }
+
+    .badge-status.Payer::before {
+      background: var(--green);
     }
 
     .td-actions {

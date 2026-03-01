@@ -396,6 +396,7 @@
 
         </div>
       </div>
+         
     </form>
       <!-- Section 3: Confirmation -->
       <div class="section-card">
@@ -459,6 +460,8 @@
         <div class="sum-total">
           <span class="tl">Total TTC</span>
           <span class="tv"><?= $total=($sous_total-$reduction)?> fcfa</span>
+          <!-- total -->
+           <input type="hidden" name="total" value=<?=$total?> form='information_paiement'  >
         </div>
 
         <button type="submit" form="information_paiement" class="pay-btn" id="pay-btn" onclick="handlePay()" >
