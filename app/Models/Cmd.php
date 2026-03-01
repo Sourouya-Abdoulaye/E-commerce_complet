@@ -61,20 +61,11 @@ class Cmd extends Model  {
                     ':prix_unitaire' => $produit['prix']
                 ]);
             }
-            
 
-            die('isertion');
-
-
+            //die('isertion');
 
         }
-
         
-
-
-
-
-
         return $statement;
         
     }

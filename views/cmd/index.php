@@ -1,26 +1,35 @@
 
 <div class="content">
-  <div  class="table-card" id="orders" >
+  <!-- <div  class="table-card" id="orders" > -->
 
-    <div class="table-header-group" class="card-head" style="padding:1.5rem 1.5rem 0;">
-        <h3>Articles Disponibles</3>
+    <!-- <div class="table-header-group" class="card-head" style="padding:1.5rem 1.5rem 0;">
+        <h3>Liste Des commandes</3>
         <div class="toolbar">
             <div class="search-wrapper">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Rechercher un article..." onkeyup="filterTable(this)">
+                <input type="text" placeholder="Rechercher une Commande..." onkeyup="filterTable(this)">
             </div>
-            <a href="/admin/article/form" class="add-link">
-                <button class="tab-btn"><i class="fa-solid fa-plus"></i>Ajouter un article</button>
-            </a>
+           
         </div>
-    </div>
+    </div> -->
 
 
       <div class="table-card" id="orders">
+        <div class="table-header-group" class="card-head" style="padding:1.5rem 1.5rem 0;">
+          <h3>Liste Des commandes</3>
+          <div class="toolbar" >
+              <div class="search-wrapper">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input type="text" placeholder="Rechercher une Commande..." onkeyup="filterTable(this)">
+              </div>
+          </div>
+        </div>
+
         <div class="card-head" style="padding:1.5rem 1.5rem 0;">
           <div>
             <h3>Commandes récentes</h3>
-            <p>12 commandes en attente de traitement</p>
+            <!-- commandes en attente de traitement -->
+            <p><?=$nbre_cmd?> commandes Enregistrer</p>
           </div>
           <div class="card-actions">
             <button class="tab-btn active">Toutes</button>
@@ -80,6 +89,6 @@
    
         </div>
       </div>
-      
+
   </div>
 </div>

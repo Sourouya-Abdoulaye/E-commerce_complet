@@ -151,27 +151,33 @@ class CmdController extends Controller  {
                 print_r($commande_object);
             echo '</pre>';
 
-           
             Cmd::create($commande_object);
+            // die("enregistrement commande");
+            unset($_SESSION['panier']);
+            // si il croche le checkbox alors on peut garder ces informations
+            //pour un autre achat, mais pour le meme client.
+            unset($_SESSION['paiement_erreurs']);
+            unset($_SESSION['old_info_paiement']);
 
-
-            die("enregistrement commande");
-            header("Location: /merci");
+            header("Location:/");
 
             
+        } else {
+            $_SESSION['paiement_erreurs'] = $erreurs;
+            //garder les anciennes valeurs du formulaire
+            $_SESSION['old_info_paiement'] = $_POST;
+            echo '<pre>';
+            print_r($_SESSION['paiement_erreurs']);
+            echo '</pre>';
+            // unset($_SESSION['paiement_erreurs']);
+            // die("fin");
+            header("Location:/paiement"); // page du formulaire
+            //exit;
+
         }
 
        
-        $_SESSION['paiement_erreurs'] = $erreurs;
-        //garder les anciennes valeurs du formulaire
-        $_SESSION['old_info_paiement'] = $_POST;
-        echo '<pre>';
-        print_r($_SESSION['paiement_erreurs']);
-        echo '</pre>';
-        // unset($_SESSION['paiement_erreurs']);
-        // die("fin");
-        header("Location: /paiement"); // page du formulaire
-        //exit;
+        
 
 
 

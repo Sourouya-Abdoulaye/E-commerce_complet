@@ -167,11 +167,21 @@ class ArticleController extends Controller implements Resource {
 
 
     public function show(int $id) {
+        // a ameliorer cette fonction
         //echo "<h1>Details de l'article $id </h1>";
         $article=article::find($id);
+        $products=Article::all();
+
         //print_r($article);
         // retourne un tableau associatif
-        $data=compact('article');
+
+        $nbre_prod=0;
+        if ( isset($_SESSION['panier'])) {
+            $nbre_prod=count($_SESSION['panier']);
+
+            } 
+
+        $data=compact('article','nbre_prod','products');
         $this->render("article/detail.php",$data);
         
     }

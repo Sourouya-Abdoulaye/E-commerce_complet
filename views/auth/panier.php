@@ -240,7 +240,9 @@ if ( isset($_SESSION['panier'])   ) {
     <div class="suggestions" id="suggestions">
       <h3>Vous pourriez aussi aimer</h3>
       <div class="suggestions-grid">
-        <div class="sug-card">
+
+
+        <!-- <div class="sug-card">
           <div class="sug-img"><img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=300&q=80"
               alt=""></div>
           <div class="sug-body">
@@ -248,34 +250,44 @@ if ( isset($_SESSION['panier'])   ) {
             <div class="sug-price">5 500 fcfa</div>
             <button class="sug-add" onclick="suggestAdd('Casquette Urban Camo','5 500')">+ Ajouter</button>
           </div>
+        </div> -->
+
+        <?php 
+$randomProducts = $products;
+shuffle($randomProducts); // Mélange le tableau
+?>
+
+<?php foreach (array_slice($randomProducts, 0, 5) as $product): ?>
+
+    <div class="sug-card">
+        <div class="sug-img">
+            <img 
+                src="/asset/medias/<?= htmlspecialchars($product["image"]) ?>" 
+                alt="<?= htmlspecialchars($product["libelle"]) ?>"
+            >
         </div>
-        <div class="sug-card">
-          <div class="sug-img"><img src="https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?w=300&q=80"
-              alt=""></div>
-          <div class="sug-body">
-            <div class="sug-name">Polo Col Rond Beige</div>
-            <div class="sug-price">8 900 fcfa</div>
-            <button class="sug-add" onclick="suggestAdd('Polo Col Rond Beige','8 900')">+ Ajouter</button>
-          </div>
+
+        <div class="sug-body">
+            <div class="sug-name">
+                <?= htmlspecialchars($product["libelle"]) ?>
+            </div>
+
+            <div class="sug-price">
+                <?= number_format($product["prix"], 0, ',', ' ') ?> FCFA
+            </div>
+
+            <form action="/article/<?= $product["id"]?>/add" method="post" id='formul'> </form>
+
+            <button type="submit" class="sug-add"  form='formul'>
+                <?php  $resultat= (isset($_SESSION['panier']) && isset($_SESSION['panier'][$product["id"]])) ? "déja au panier" : "ajouter au panier" ; ?>
+                <?=$resultat?>
+            </button>
+
         </div>
-        <div class="sug-card">
-          <div class="sug-img"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&q=80" alt="">
-          </div>
-          <div class="sug-body">
-            <div class="sug-name">Nike Air Force 1 Blanc</div>
-            <div class="sug-price">52 000 fcfa</div>
-            <button class="sug-add" onclick="suggestAdd('Nike Air Force 1 Blanc','52 000')">+ Ajouter</button>
-          </div>
-        </div>
-        <div class="sug-card">
-          <div class="sug-img"><img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=300&q=80"
-              alt=""></div>
-          <div class="sug-body">
-            <div class="sug-name">Cardigan Oversize Noir</div>
-            <div class="sug-price">18 500 fcfa</div>
-            <button class="sug-add" onclick="suggestAdd('Cardigan Oversize Noir','18 500')">+ Ajouter</button>
-          </div>
-        </div>
+    </div>
+
+<?php endforeach; ?>
+
       </div>
     </div>
   </div>

@@ -9,6 +9,7 @@ class PanierController extends Controller  {
     public function index() {
         $nbr_produit=0;
         $mon_panier=[];
+        $products=Article::all();
         //on verifie si le panier existe e
         if (isset($_SESSION['panier']) && count($_SESSION['panier'])!==0) {
             $mon_panier=$_SESSION['panier'];
@@ -16,7 +17,7 @@ class PanierController extends Controller  {
         }
             
         // Afficher le panier
-        $data=compact("nbr_produit","mon_panier");
+        $data=compact("nbr_produit","mon_panier","products");
         $this->render("auth/panier.php",$data);
 
     }
@@ -97,7 +98,7 @@ class PanierController extends Controller  {
     public function paiement() {
 
         if (isset($_SESSION['connexion'])) {
-             if ( isset($_SESSION['panier'])  && count($_SESSION['panier'])>0) {
+            if ( isset($_SESSION['panier'])  && count($_SESSION['panier'])>0) {
             $paniers=$_SESSION['panier'];
             $this->render("auth/paiement.php",compact('paniers'));
 

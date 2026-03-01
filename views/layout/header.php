@@ -45,7 +45,7 @@
             <?php else : ?>
                 <li class="login"> <a href='/login/form'>Conexion</a> </li>
             <?php endif ?>
-        </div>
+      </div>
     </ul>
 
     <div id="taches" onclick="toggleMobileNav()">

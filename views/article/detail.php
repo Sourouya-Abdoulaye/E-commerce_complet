@@ -6,36 +6,13 @@
     <script src="https://kit.fontawesome.com/a80ab110e1.js" crossorigin="anonymous"></script>
      <style>
         <?php include_once __DIR__."/../../public/asset/css/commun/style.css"  ?>
+        <?php include_once __DIR__."/../../public/asset/css/commun/header.css" ?>
         <?php  include_once __DIR__."/../../public/asset/css/article/detail.css"  ?>
     </style>
     <title>Document</title>
 </head>
 <body>
-    <!-- <a href="/admin/article/form"><button>Ajouter</button></a>
-    <a href="/admin/article"><button>Liste des articles</button></a> -->
-
-   
-    <br>
-    <!-- <?php // print_r($article)?>  -->
-
-    <?php if($article!==null): ?>
-
-        <!-- <div class="row_detail">
-            <strong>Libelle:</strong>  <span class="name"> <?=$article["libelle" ]?> </span> 
-        </div>
-
-        <div class="row_detail">
-            <strong>Prix:</strong>  <span class="name"> <?=$article["prix" ]?> </span> 
-        </div>
-
-        <div class="row_detail">
-            <strong>Quantité:</strong>    <span class="name"> <?=$article["quantite"]?>  </span> 
-        </div>
-
-        <div class="row_detail">
-            <strong>Date:</strong>  <span class="name"> <?=$article["date"  ]?>  </span> 
-        </div> -->
-
+  
          <!-- HEADER -->
   <header>
     <div class="hrow">
@@ -48,29 +25,39 @@
       </nav>
       <div class="hactions">
         <a href="/panier" class="cart-btn">
-          <i class="fa-solid fa-cart-arrow-down"></i> Panier <span
-            style="background:#f4a261;color:#08080e;font-size:0.65rem;font-weight:700;border-radius:50px;padding:1px 6px;min-width:18px;text-align:center;">3</span>
+          <i class="fa-solid fa-cart-arrow-down"></i> Panier 
+          <span
+            style="background:#f4a261;color:#08080e;font-size:0.65rem;font-weight:700;border-radius:50px;padding:1px 6px;min-width:18px;text-align:center;">
+            <?=$nbre_prod?>
+          </span>
         </a>
-        <a href="/login/form" class="login-btn">Connexion</a>
-        <button id="burger" onclick="document.getElementById('mobileNav').classList.toggle('open')"><i
-            class="fa-solid fa-bars"></i></button>
+
+        <div class="nav-droit">
+            <?php if (isset($_SESSION['connexion'])): ?> 
+               <a href='/deconexion'> <li   class="login-btn">Deconexion</li> </a>
+            <?php else : ?>
+                <li class="login-btn" class="login"> <a href='/login/form'>Conexion</a> </li>
+            <?php endif ?>
+        </div>
+
       </div>
     </div>
     <div class="mobile-nav" id="mobileNav">
       <a href="/">🏠 Accueil</a>
       <a href="/#categorie">📂 Catégorie</a>
-      <a href="/contact.html">📬 Contact</a>
-      <a href="/panier.html">🛒 Panier</a>
+      <a href="/contact">📬 Contact</a>
+      <a href="/panier">🛒 Panier</a>
     </div>
   </header>
+  
 
   <!-- BREADCRUMB -->
   <div class="breadcrumb">
-    <a href="/">Accueil</a>
+    <a href="/panier">Accueil</a>
     <i class="fa-solid fa-chevron-right"></i>
-    <a href="/#Chaussure">Chaussures</a>
+    <a href="/?categorie=<?=$article["categorie"]?>#categorie"><?=$article["categorie"]?></a>
     <i class="fa-solid fa-chevron-right"></i>
-    <span style="color:#f0eeff;">Sneakers Air Ultra</span>
+    <span style="color:#f0eeff;"><?=$article["libelle"]?></span>
   </div>
 
   <!-- MAIN -->
@@ -84,32 +71,52 @@
         <div class="main-img-wrap" id="mainImgWrap">
           <span class="img-badge">−22%</span>
           <img id="mainImg" src="/asset/medias/<?=$article["image"]?>" 
-            alt="Sneakers Air Ultra">
+            alt=<?=$article["libelle"]?>>
         </div>
+
+
         <div class="thumbs">
-          <div class="thumb active"
-            onclick="switchImg(this,'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&q=85')">
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=75" alt="">
+          <div class="thumb">
+            <a href="/article/<?= $article["id"]?>" >
+              <div class="img-overlay">
+                  <button style='color:white' class="rc-overlay"><i class="fa-solid fa-eye" style='color:white'></i> Voir détails</button>
+              </div>
+            </a>
+            <img src="/asset/medias/<?=$article["image"]?>" alt=<?=$article["libelle"]?>>
           </div>
-          <div class="thumb"
-            onclick="switchImg(this,'https://images.unsplash.com/photo-1584735175315-9d5df23be1c4?w=700&q=85')">
-            <img src="https://images.unsplash.com/photo-1584735175315-9d5df23be1c4?w=200&q=75" alt="">
-          </div>
-          <div class="thumb"
-            onclick="switchImg(this,'https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=700&q=85')">
-            <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=200&q=75" alt="">
-          </div>
-          <div class="thumb"
-            onclick="switchImg(this,'https://images.unsplash.com/photo-1556906781-9a412961a28c?w=700&q=85')">
-            <img src="https://images.unsplash.com/photo-1556906781-9a412961a28c?w=200&q=75" alt="">
-          </div>
+
+          <?php if (isset($article['categorie'])): ?>
+          <?php foreach ($products as $product): ?>
+              <?php if (
+                  $product['categorie'] == $article['categorie'] &&
+                  $product['id'] !== $article['id']
+              ): ?>
+
+            <div class="thumb">
+                <a href="/article/<?= $product["id"] ?>">
+                    <div class="img-overlay">
+                        <button style="color:white" class="rc-overlay">
+                            <i class="fa-solid fa-eye"></i> Voir détails
+                        </button>
+                    </div>
+                </a>
+
+                <img 
+                    src="/asset/medias/<?= htmlspecialchars($product["image"]) ?>" 
+                    alt="<?= htmlspecialchars($product["libelle"]) ?>">
+            </div>
+
+              <?php endif; ?>
+            <?php endforeach; ?>
+          <?php endif; ?>
+
         </div>
       </div>
 
       <!-- PRODUCT INFO -->
       <div class="product-info">
-        <div class="pi-category">Chaussures · Sneakers</div>
-        <h1 class="pi-title">Sneakers Air Ultra<br><span style="color:#c8b8ff;">Édition Blanche</span></h1>
+        <div class="pi-category"> <?=$article["categorie"]?> · <?=$article["libelle"]?></div>
+        <h1 class="pi-title"><?=$article["libelle"]?><br><span style="color:#c8b8ff;">Édition Blanche</span></h1>
 
         <div class="pi-rating">
           <div class="stars">
@@ -123,7 +130,7 @@
         </div>
 
         <div class="pi-price">
-          <div class="price-main">45 000 fcfa</div>
+          <div class="price-main">  <?= number_format($article["prix"], 0, ',', ' ') ?> FCFA </div>
           <div class="price-old">58 000 fcfa</div>
           <div class="price-discount">−22%</div>
         </div>
@@ -168,28 +175,36 @@
           <div class="pi-option-label">Quantité</div>
           <div class="qty-row">
             <div class="qty-control">
-              <button class="qty-b" id="qty-minus" onclick="changeQty(-1)" disabled><i
-                  class="fa-solid fa-minus"></i></button>
-              <span class="qty-val" id="qty-val">1</span>
-              <button class="qty-b" onclick="changeQty(1)"><i class="fa-solid fa-plus"></i></button>
+                  <span class="qty-val"><?php echo $_SESSION['panier'][$article["id"]]['qte'] ?? 0; ?></span>
             </div>
-            <div class="stock-info ok"><i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> En stock (14
+
+            <div class="stock-info ok"><i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> En stock (<?=$article["quantite"]?>
               restants)</div>
           </div>
         </div>
+        <form action="/article/<?= $article["id"]?>/<?= $article["categorie"]?>/add" method="post" id='formulaire'>
+                                            
+        </form>
 
         <!-- CTA -->
         <div class="cta-row">
-          <button class="btn-cart" onclick="addToCart()">
-            <i class="fa-solid fa-bag-shopping"></i> Ajouter au panier
+          <button type="submit" class="btn-cart" form='formulaire'>
+             <?php  $resultat= (isset($_SESSION['panier']) && isset($_SESSION['panier'][$article["id"]])) ? "déja au panier" : "ajouter au panier" ; ?>
+             <!-- ajouter panier -->
+             <?=$resultat?>
           </button>
+
           <button class="btn-wishlist" id="wishlist-btn" onclick="toggleWishlist(this)">
             <i class="fa-regular fa-heart"></i>
           </button>
+
         </div>
-        <button class="btn-buy-now" onclick="location.href='paiement.html'">
+
+         <a href="/paiement">
+        <button class="btn-buy-now">
           <i class="fa-solid fa-bolt"></i> Acheter maintenant
         </button>
+        </a>
 
         <!-- Features -->
         <div class="features-row">
@@ -238,13 +253,13 @@
             </div>
           </div>
           <div>
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80" alt=""
-              style="width:100%;border-radius:16px;border:1px solid rgba(200,184,255,0.1);">
+            <img src="/asset/medias/<?=$article["image"]?>" alt=<?=$article["libelle"]?>
+              style="width:80%;height:500px;border-radius:16px;border:1px solid rgba(200,184,255,0.1);">
           </div>
         </div>
       </div>
 
-      <!-- Specs -->
+      <!-- catracteristique -->
       <div class="tab-panel" id="tab-specs">
         <div class="specs-table">
           <div class="spec-row"><span class="spec-key">Marque</span><span class="spec-val">Air Ultra™</span></div>
@@ -428,66 +443,69 @@
         <h2>Vous aimerez aussi</h2>
         <a href="/#produits" class="see-all">Voir tout <i class="fa-solid fa-arrow-right"></i></a>
       </div>
+
       <div class="related-grid">
+      <?php if (isset($article['categorie'])):   ?>
+        <?php 
+// Filtrer uniquement les produits qui NE SONT PAS de la même catégorie que l'article courant
+        $otherProducts = array_filter($products, function($p) use ($article) {
+            return $p['categorie'] !== $article['categorie'];
+        });
+
+          // Récupérer jusqu'à 5 produits aléatoires
+          $randomKeys = array_rand($otherProducts, min(5, count($otherProducts)));
+          if (!is_array($randomKeys)) {
+              $randomKeys = [$randomKeys]; // Si seulement 1 élément
+          }
+
+          foreach ($randomKeys as $key):
+              $product = $otherProducts[$key];
+          ?>
+
         <div class="related-card">
-          <div class="rc-img"><img src="https://images.unsplash.com/photo-1584735175315-9d5df23be1c4?w=400&q=80"
-              alt="Boots Cuir">
-            <div class="rc-overlay"><button class="rc-overlay-btn">Voir détails</button></div>
-          </div>
-          <div class="rc-body">
-            <div class="rc-name">Boots Cuir Classique</div>
-            <div class="rc-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
-            <div class="rc-price">38 000 fcfa</div>
-          </div>
+            <div class="rc-img">
+                <img 
+                    src="/asset/medias/<?= htmlspecialchars($product["image"]) ?>" 
+                    alt="<?= htmlspecialchars($product["libelle"]) ?>"
+                >
+
+                <a href="/article/<?= $product["id"] ?>">
+                    <div class="img-overlay">
+                        <button style="color:white" class="rc-overlay">
+                            <i class="fa-solid fa-eye"></i> Voir détails
+                        </button>
+                    </div>
+                </a>
+            </div>
+
+            <div class="rc-body">
+                <div class="rc-name">
+                    <?= htmlspecialchars($product["libelle"]) ?>
+                </div>
+
+                <div class="rc-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+
+                <div class="rc-price">
+                    <?= number_format($product["prix"], 0, ',', ' ') ?> FCFA
+                </div>
+            </div>
         </div>
-        <div class="related-card">
-          <div class="rc-img"><img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=400&q=80"
-              alt="Nike">
-            <div class="rc-overlay"><button class="rc-overlay-btn">Voir détails</button></div>
-          </div>
-          <div class="rc-body">
-            <div class="rc-name">Nike Sportswear Run</div>
-            <div class="rc-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star-half-stroke"></i></div>
-            <div class="rc-price">52 000 fcfa</div>
-          </div>
-        </div>
-        <div class="related-card">
-          <div class="rc-img"><img src="https://images.unsplash.com/photo-1556906781-9a412961a28c?w=400&q=80"
-              alt="Urban Low">
-            <div class="rc-overlay"><button class="rc-overlay-btn">Voir détails</button></div>
-          </div>
-          <div class="rc-body">
-            <div class="rc-name">Urban Low Pro</div>
-            <div class="rc-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-            <div class="rc-price">29 500 fcfa</div>
-          </div>
-        </div>
-        <div class="related-card">
-          <div class="rc-img"><img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&q=80"
-              alt="Classic White">
-            <div class="rc-overlay"><button class="rc-overlay-btn">Voir détails</button></div>
-          </div>
-          <div class="rc-body">
-            <div class="rc-name">Classic White Canvas</div>
-            <div class="rc-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
-            <div class="rc-price">22 000 fcfa</div>
-          </div>
-        </div>
+
+    <?php endforeach; ?>
+
+        
+
       </div>
     </div>
 
-  </div><!-- /main-wrap -->
-
-  <!-- TOAST -->
-  <div class="toast" id="toast">
-    <i class="fa-solid fa-circle-check" style="color:#4ade80;"></i>
-    <span id="toast-msg">Ajouté au panier !</span>
   </div>
+
 
   <script>
     let qty = 1;
