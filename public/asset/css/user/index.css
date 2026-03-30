@@ -1,48 +1,26 @@
-
-/* --- Actions --- */
-/* .actions-cell {
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-}
-
-.actions-cell a, .actions-cell button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 5px;
-    transition: 0.2s;
-}
-
-.icon-view { color: #4a5568; }
-.icon-edit { color: #4c51bf; }
-.icon-delete { color: #e53e3e; }
-
-.actions-cell a:hover, .actions-cell button:hover {
-    transform: scale(1.15);
-} */
-
-
 .main-content {
     padding: 20px;
-    /* background: #ffffff; */
+    background: #ffffff;
     border-radius: 8px;
     margin: 20px;
 }
 
-.table-header-group h1 {
-    font-size: 24px;
+.table-header-group h3 {
+    font-size: 30px;
     margin-bottom: 15px;
     color: #1a202c;
+  
+   
 }
 
 /* --- Barre d'outils (Recherche + Ajouter) --- */
 .toolbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    align-items: start;
+    margin-top: 10px;
+    margin-bottom: 10px;
+   
 }
 
 .search-wrapper {
@@ -52,10 +30,13 @@
 
 .search-wrapper input {
     width: 100%;
-    padding: 8px 12px 8px 35px;
-    border: 1px solid #e2e8f0;
+    font-size: 15px;
+    color: white;
+    height: 40px;
+    padding: 8px 90px 8px 35px;
+    border: 1px solid #2a2f35;
     border-radius: 6px;
-    background: #f7fafc;
+    background: #172025;
 }
 
 .search-wrapper i {
@@ -63,7 +44,7 @@
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: #a0aec0;
+    color: rgb(182, 166, 166);
 }
 
 .add-link {

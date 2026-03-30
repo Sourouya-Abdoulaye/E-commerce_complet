@@ -100,7 +100,11 @@ class ArticleController extends Controller implements Resource {
                 // Verification de type qu'on accepte 
                 $typeAutorise = ["image/jpeg", "image/png", "image/gif"];
 
-                if(in_array($_FILES['image']['type'], $typeAutorise) && $_FILES['image']['size']<1000000 ){
+                $valide=in_array($_FILES['image']['type'], $typeAutorise);
+                var_dump($a);
+                //die($a);
+                //$_FILES['image']['size']<1000000 ;
+                if($valide) {
 
                     //je vais creer le un nom unique pour l'image
                     $image = uniqid().".jpg";

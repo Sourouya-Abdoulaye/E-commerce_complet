@@ -1,18 +1,5 @@
 
 <div class="content">
-  <!-- <div  class="table-card" id="orders" > -->
-
-    <!-- <div class="table-header-group" class="card-head" style="padding:1.5rem 1.5rem 0;">
-        <h3>Liste Des commandes</3>
-        <div class="toolbar">
-            <div class="search-wrapper">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Rechercher une Commande..." onkeyup="filterTable(this)">
-            </div>
-           
-        </div>
-    </div> -->
-
 
       <div class="table-card" id="orders">
         <div class="table-header-group" class="card-head" style="padding:1.5rem 1.5rem 0;">
@@ -92,3 +79,6 @@
 
   </div>
 </div>
+
+
+

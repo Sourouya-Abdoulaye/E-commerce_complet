@@ -2,9 +2,9 @@
 
 <div class="content">
 <div  class="table-card" id="orders" >
-
-    <div class="table-header-group" class="card-head" style="padding:1.5rem 1.5rem 0;">
-        <h3>Utilisateurs</3>
+<!-- class="card-head" -->
+    <div class="table-header-group"  style="padding:1.5rem 1.5rem 0;">
+        <h1>Utilisateurs</h1>
         <div class="toolbar">
             <div class="search-wrapper">
                 <i class="fa-solid fa-magnifying-glass"></i>
